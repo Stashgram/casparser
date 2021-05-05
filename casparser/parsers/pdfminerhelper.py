@@ -12,7 +12,7 @@ from pdfminer.layout import LTTextBoxHorizontal, LTTextBoxVertical
 
 from casparser.enums import FileType
 from casparser.exceptions import CASParseError
-from .utils import is_close, InvestorInfo, PartialCASData
+from casparser.parsers.utils import is_close, InvestorInfo, PartialCASData
 
 
 def parse_investor_info(layout, width, height) -> InvestorInfo:

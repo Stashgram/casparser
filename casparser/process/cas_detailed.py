@@ -4,13 +4,13 @@ from typing import Dict, Optional, Tuple
 
 from dateutil import parser as date_parser
 
-from ..enums import TransactionType, CASFileType
-from ..exceptions import HeaderParseError, CASParseError
-from .regex import DETAILED_DATE_RE, FOLIO_RE, SCHEME_RE, REGISTRAR_RE
-from .regex import CLOSE_UNITS_RE, NAV_RE, OPEN_UNITS_RE, VALUATION_RE
-from .regex import DESCRIPTION_TAIL_RE, DIVIDEND_RE, TRANSACTION_RE
-from ..types import FolioType
-from .utils import isin_search
+from casparser.enums import TransactionType, CASFileType
+from casparser.exceptions import HeaderParseError, CASParseError
+from casparser.process.regex import DETAILED_DATE_RE, FOLIO_RE, SCHEME_RE, REGISTRAR_RE
+from casparser.process.regex import CLOSE_UNITS_RE, NAV_RE, OPEN_UNITS_RE, VALUATION_RE
+from casparser.process.regex import DESCRIPTION_TAIL_RE, DIVIDEND_RE, TRANSACTION_RE
+from casparser.commontypes import FolioType
+from casparser.process.utils import isin_search
 
 
 def parse_header(text):
@@ -110,9 +110,9 @@ def process_detailed_text(text):
                 folios[folio] = {
                     "folio": current_folio,
                     "amc": current_amc,
-                    "PAN": (m.group(2) or "").strip(),
-                    "KYC": None if m.group(3) is None else m.group(3).strip(),
-                    "PANKYC": None if m.group(4) is None else m.group(4).strip(),
+                    "PAN": "",
+                    "KYC": "",
+                    "PANKYC": "",
                     "schemes": [],
                 }
         elif m := re.search(SCHEME_RE, line, re.DOTALL | re.MULTILINE | re.I):

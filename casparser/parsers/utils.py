@@ -4,7 +4,7 @@ import io
 import json
 
 from ..encoder import CASDataEncoder
-from ..types import CASParserDataType
+from ..commontypes import CASParserDataType
 
 InvestorInfo = namedtuple("InvestorInfo", ["name", "email", "address", "mobile"])
 PartialCASData = namedtuple("PartialCASData", ["file_type", "investor_info", "lines"])

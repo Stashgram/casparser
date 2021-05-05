@@ -2,16 +2,18 @@ import io
 from typing import Union
 
 from casparser.process import process_cas_text
-from ..types import FolioType
-from .utils import cas2json, cas2csv
+from casparser.commontypes import FolioType
+from casparser.parsers.utils import cas2json, cas2csv
+
+print("hey")
 
 
 def read_cas_pdf(
-    filename: Union[str, io.IOBase],
-    password,
-    output="dict",
-    sort_transactions=False,
-    force_pdfminer=False,
+        filename: Union[str, io.IOBase],
+        password,
+        output="dict",
+        sort_transactions=False,
+        force_pdfminer=False,
 ):
     """
     Parse CAS pdf and returns line data.
@@ -22,16 +24,17 @@ def read_cas_pdf(
     :param sort_transactions: Sort transactions by date and re-compute balances.
     :param force_pdfminer: Force pdfminer parser even if mupdf is detected
     """
+    print("hey")
     if force_pdfminer:
-        from .pdfminer import cas_pdf_to_text
+        from casparser.parsers.pdfminerhelper import cas_pdf_to_text
     else:
         try:
-            from .mupdf import cas_pdf_to_text
+            from casparser.parsers.mupdfhelper import cas_pdf_to_text
         except (ImportError, ModuleNotFoundError):
-            from .pdfminer import cas_pdf_to_text
+            from casparser.parsers.pdfminerhelper import cas_pdf_to_text
 
     partial_cas_data = cas_pdf_to_text(filename, password)
-
+    print(partial_cas_data)
     processed_data = process_cas_text("\u2029".join(partial_cas_data.lines))
 
     if sort_transactions:
@@ -61,3 +64,6 @@ def read_cas_pdf(
     elif output == "csv":
         return cas2csv(processed_data)
     return cas2json(processed_data)
+
+
+read_cas_pdf("E:\Stashgam\casparser\cams.pdf", "FOXPS4837B")

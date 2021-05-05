@@ -9,10 +9,7 @@ SUMMARY_ROW_RE = (
 )
 SCHEME_TAIL_RE = r"(\n.+?)\t\t"
 
-FOLIO_RE = (
-    r"Folio\s+No\s*:\s+([\d/\s]+)\s+.*?(?:PAN\s*:\s*([A-Z]{5}\d{4}[A-Z])\s+)?.*?"
-    r"(?:KYC\s*:\s*(OK|NOT\s+OK))?\s*.*?(?:PAN\s*:\s*(OK|NOT\s+OK))?$"
-)
+FOLIO_RE = r"Folio\s+No\s*:\s+([\d/\s]+).*"
 
 SCHEME_RE = r"([\s\w]+)-\s*\d*\s*(.+?)\s*(?:\(Advisor\s*:\s*(.+?)\))*\s+Registrar\s*:\s*(.*)\s*$"
 REGISTRAR_RE = r"^\s*Registrar\s*:\s*(.*)\s*$"

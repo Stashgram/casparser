@@ -82,14 +82,14 @@ class TestMuPDF(BaseTestClass):
         assert re.search(r"Error\s+:\s+1\s+schemes", result.output) is not None
 
     def test_bad_investor_info(self):
-        from casparser.parsers.mupdf import parse_investor_info
+        from casparser.parsers.mupdfhelper import parse_investor_info
 
         with pytest.raises(CASParseError) as exc_info:
             parse_investor_info({"width": 0, "height": 0, "blocks": []})
         assert "Unable to parse investor data" in str(exc_info)
 
     def test_bad_file_type(self):
-        from casparser.parsers.mupdf import parse_file_type
+        from casparser.parsers.mupdfhelper import parse_file_type
 
         file_type = parse_file_type([])
         assert file_type == FileType.UNKNOWN

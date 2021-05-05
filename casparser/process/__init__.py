@@ -2,9 +2,9 @@ import re
 
 from ..enums import CASFileType
 from ..exceptions import CASParseError
-from .cas_detailed import process_detailed_text
-from .cas_summary import process_summary_text
-from .regex import CAS_TYPE_RE
+from casparser.process.cas_detailed import process_detailed_text
+from casparser.process.cas_summary import process_summary_text
+from casparser.process.regex import CAS_TYPE_RE
 
 
 def detect_cas_type(text):
