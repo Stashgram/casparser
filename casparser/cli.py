@@ -16,7 +16,7 @@ from .__version__ import __version__
 from . import read_cas_pdf
 from .enums import CASFileType
 from .exceptions import ParserException
-from .parsers.utils import is_close, cas2json, cas2csv, cas2csv_summary
+from .extract.utils import is_close, cas2json, cas2csv, cas2csv_summary
 
 CONTEXT_SETTINGS = dict(help_option_names=["-h", "--help"])
 

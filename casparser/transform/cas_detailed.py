@@ -6,11 +6,11 @@ from dateutil import parser as date_parser
 
 from casparser.enums import TransactionType, CASFileType
 from casparser.exceptions import HeaderParseError, CASParseError
-from casparser.process.regex import DETAILED_DATE_RE, FOLIO_RE, SCHEME_RE, REGISTRAR_RE
-from casparser.process.regex import CLOSE_UNITS_RE, NAV_RE, OPEN_UNITS_RE, VALUATION_RE
-from casparser.process.regex import DESCRIPTION_TAIL_RE, DIVIDEND_RE, TRANSACTION_RE
+from casparser.transform.regex import DETAILED_DATE_RE, FOLIO_RE, SCHEME_RE, REGISTRAR_RE
+from casparser.transform.regex import CLOSE_UNITS_RE, NAV_RE, OPEN_UNITS_RE, VALUATION_RE
+from casparser.transform.regex import DESCRIPTION_TAIL_RE, DIVIDEND_RE, TRANSACTION_RE
 from casparser.commontypes import FolioType
-from casparser.process.utils import isin_search
+from casparser.transform.utils import isin_search
 
 
 def parse_header(text):

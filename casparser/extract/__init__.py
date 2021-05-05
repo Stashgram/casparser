@@ -1,9 +1,9 @@
 import io
 from typing import Union
 
-from casparser.process import process_cas_text
+from casparser.transform import process_cas_text
 from casparser.commontypes import FolioType
-from casparser.parsers.utils import cas2json, cas2csv
+from casparser.extract.utils import cas2json, cas2csv
 
 print("hey")
 
@@ -26,12 +26,12 @@ def read_cas_pdf(
     """
     print("hey")
     if force_pdfminer:
-        from casparser.parsers.pdfminerhelper import cas_pdf_to_text
+        from casparser.extract.pdfminerhelper import cas_pdf_to_text
     else:
         try:
-            from casparser.parsers.mupdfhelper import cas_pdf_to_text
+            from casparser.extract.mupdfhelper import cas_pdf_to_text
         except (ImportError, ModuleNotFoundError):
-            from casparser.parsers.pdfminerhelper import cas_pdf_to_text
+            from casparser.extract.pdfminerhelper import cas_pdf_to_text
 
     partial_cas_data = cas_pdf_to_text(filename, password)
     print(partial_cas_data)

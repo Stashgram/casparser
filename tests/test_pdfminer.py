@@ -14,7 +14,7 @@ class TestPDFMiner(BaseTestClass):
         cls.mode = "pdfminer"
 
     def test_bad_investor_info(self):
-        from casparser.parsers.pdfminer import parse_investor_info
+        from casparser.extract.pdfminer import parse_investor_info
 
         with pytest.raises(CASParseError) as exc_info:
             box = LTTextBoxHorizontal()

@@ -11,7 +11,7 @@ from casparser.exceptions import CASParseError
 
 
 class BaseTestClass:
-    """Common test cases for all available parsers."""
+    """Common test cases for all available extract."""
 
     @classmethod
     def setup_class(cls):

@@ -1,4 +1,4 @@
-from casparser.parsers import read_cas_pdf
+from casparser.extract import read_cas_pdf
 from casparser.commontypes import CASParserDataType
 from casparser.__version__ import __version__
 

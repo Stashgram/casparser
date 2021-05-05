@@ -3,10 +3,10 @@ from decimal import Decimal
 import pytest
 
 from casparser.exceptions import CASParseError, HeaderParseError
-from casparser.process import process_cas_text
-from casparser.process.cas_detailed import parse_header, get_transaction_type
-from casparser.process.cas_summary import parse_header as parse_summary_header
-from casparser.process.utils import isin_search
+from casparser.transform import process_cas_text
+from casparser.transform.cas_detailed import parse_header, get_transaction_type
+from casparser.transform.cas_summary import parse_header as parse_summary_header
+from casparser.transform.utils import isin_search
 from casparser.enums import TransactionType
 
 
